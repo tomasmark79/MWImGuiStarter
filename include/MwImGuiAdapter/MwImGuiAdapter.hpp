@@ -1,19 +1,19 @@
-#ifndef __MYIMGUIADAPTER_H__
-#define __MYIMGUIADAPTER_H__
+#ifndef __MWIMGUIADAPTER_H__
+#define __MWIMGUIADAPTER_H__
 
 // Here we will make Class connection to kinds of implementations
 // of ImGui, GLFW and OpenGL3
 
 namespace library {
 
-  class MyImGuiAdapter {
+  class MwImGuiAdapter {
   public:
-    MyImGuiAdapter();
-    ~MyImGuiAdapter();
+    MwImGuiAdapter();
+    ~MwImGuiAdapter();
 
   private:
   };
 
 }  // namespace library
 
-#endif  // __MYIMGUIADAPTER_H__
+#endif  // __MWIMGUIADAPTER_H__

@@ -32,7 +32,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # ==============================================================================
 # Project attributes - case size will reflect resource files case size
 # ==============================================================================
-set(LIBRARY_NAME MyImGuiAdapter)
+set(LIBRARY_NAME MwImGuiAdapter)
 string(TOLOWER "${LIBRARY_NAME}" LIBRARY_NAME_LOWER)
 set(LIBRARY_NAMESPACE dsdotname)
 project(
@@ -178,7 +178,7 @@ packageProject(
     # (optional) install your library with a namespace (Note: do NOT add extra '::')
     NAMESPACE ${LIBRARY_NAMESPACE}
     # (optional) define the project's version compatibility, defaults to `AnyNewerVersion`
-    # supported values: `AnyNewerVersion|SameMajorVersion|SameMinorVersion|MyImGuitVersion`
+    # supported values: `AnyNewerVersion|SameMajorVersion|SameMinorVersion|MwImGuitVersion`
     COMPATIBILITY AnyNewerVersion
     # (optional) option to disable the versioning of install destinations
     DISABLE_VERSION_SUFFIX YES

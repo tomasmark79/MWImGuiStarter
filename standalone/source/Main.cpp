@@ -1,4 +1,4 @@
-#include <MyImGuiAdapter/MyImGuiAdapter.hpp>
+#include <MwImGuiAdapter/MwImGuiAdapter.hpp>
 #include <Logger.hpp>
 #include <memory>
 
@@ -14,10 +14,10 @@ namespace san {
 
 int main() {
   char hw[] = "Hello, World!";
-  std::unique_ptr<library::MyImGuiAdapter> lib;
+  std::unique_ptr<library::MwImGuiAdapter> lib;
   try {
-    lib.reset(new library::MyImGuiAdapter());  // c++11
-    // lib = std::make_unique<library::MyImGuiAdapter>();  // c++14
+    lib.reset(new library::MwImGuiAdapter());  // c++11
+    // lib = std::make_unique<library::MwImGuiAdapter>();  // c++14
     //san::scream();
     { LOG.info(hw); }
     { LOG.debug(hw); }

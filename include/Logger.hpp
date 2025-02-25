@@ -50,7 +50,7 @@ public:
 
 private:
   std::string name =
-      "MyImGuiAdapter";  // string name may be affected by SolutionRenamer.py
+      "MwImGuiAdapter";  // string name may be affected by SolutionRenamer.py
   std::mutex logMutex;
 
   Logger() = default;

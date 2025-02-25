@@ -71,7 +71,7 @@
         {
             "label": "Launch Standalone",
             "type": "shell",
-            "command": "${workspaceFolder}/build/standalone/default/debug/MyImGui",
+            "command": "${workspaceFolder}/build/standalone/default/debug/MwImGui",
             "group": {
                 "kind": "build",
                 "isDefault": true
