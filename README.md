@@ -10,26 +10,25 @@ MyImGuiStarter is using MarkWare VCMake project template.
 
 ## Implementation classes
 
-CGuiGlfwGl3
+CGuiGlfwGl3 - GLFW with OpenGL3
+CGuiSdl2Gl3 - todo
+## native x86_64 Linux
 
-## x86_64 Linux
-
-tested
+succesful
 
 ![image](https://github.com/user-attachments/assets/1aa21ce0-8cb9-458a-9c64-c780c80b109e)
 
+## cross compilation to Windows
 
-## Windows
+succesful
 
-tested
-
-## MacOS
+## cross compilation to MacOS
 
 not tested
 
-## Arm
+## cross compilation to Arm
 
-to do
+to do (missing X11 packages in sysroot)
 
 ```
 Raspberry Pi OS Lite
