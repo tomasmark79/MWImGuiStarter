@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug Default Standalone",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/standalone/default/debug/MyImGui",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Direct Build"
+        },
+        {
+            "name": "Debug CMake configuration",
+            "type": "cmake",
+            "request": "launch",
+            "pipeName": "/tmp/cmake-debugger-pipe-b63684fb-b045-4d6a-9e74-5c36bc7bed0e",
+            "cmakeDebugType": "external"
+        },
+        {
+            "name": "Debug RelWithDebInfo Standalone Target",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/standalone/default/relwithdebinfo/MyImGui",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "Direct Build"
+        }
+    ]
+}
