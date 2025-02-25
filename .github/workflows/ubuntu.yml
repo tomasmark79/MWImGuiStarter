@@ -28,7 +28,7 @@ jobs:
       - name: install conan to system
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-pip
+          sudo apt-get install -y python3-pip libgl-dev libgl1-mesa-dev libgl1-mesa-dev
           pip3 install conan
 
       - name: create Conan cache
