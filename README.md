@@ -1,4 +1,4 @@
-# MyImGuiStarter MarkWare VCMake C++ project template
+# MyImGuiStarter
 
 [![Ubuntu](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/ubuntu.yml)
 [![MacOS](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/macos.yml/badge.svg)](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/macos.yml)
@@ -6,38 +6,27 @@
 
 ## Overview
 
-MyImGuiStarter is using MarkWare VCMake project template.  
+MyImGuiStarter is using 
+**[MarkWareVCMake](https://github.com/tomasmark79/MarkWareVCMake)** project template.  
 
-## Implementation classes
+## Implemented classes
 
-CGuiGlfwGl3 - GLFW with OpenGL3
+ - switchable by preprocessor
+
+CGuiGlfwGl3 - GLFW with OpenGL3  
 CGuiSdl2Gl3 - SDL2 with OpenGL3
 
-## native x86_64 Linux
+## succesfuly tested scenarios
 
-succesful
+ - native gcc x86_64 Linux
+ - native clang x86_64 Linux
+ - cross mingw32-w64 Windows
+ 
+## yet un-succesfuly scenarios
 
-![image](https://github.com/user-attachments/assets/1aa21ce0-8cb9-458a-9c64-c780c80b109e)
-
-## cross compilation to Windows
-
-succesful
-
-## cross compilation to Arm
-
-to do (missing X11 packages in sysroot)
-
-```
-Raspberry Pi OS Lite
-Release date: November 19th 2024
-System: 64-bit
-Kernel version: 6.6
-Debian version: 12 (bookworm)
-Size: 438MB
-```
+ - cross to arm -> to do (missing X11 packages in sysroot)
+   System: 64-bit, Kernel version: 6.6, Debian version: 12 (bookworm)
 
 ---
 
 **[MarkWareVCMake](https://github.com/tomasmark79/MarkWareVCMake)** – A fast and practical starting point for modern C++ development! 🏗️ This template ensures a solid foundation with pre-configured settings, modular structure, and compatibility across platforms. Boost your workflow and deliver quality code. 🌈
-
-
