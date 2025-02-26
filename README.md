@@ -23,10 +23,6 @@ succesful
 
 succesful
 
-## cross compilation to MacOS
-
-not tested
-
 ## cross compilation to Arm
 
 to do (missing X11 packages in sysroot)

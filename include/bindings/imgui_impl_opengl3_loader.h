@@ -728,9 +728,9 @@ static GL3WglProc get_proc(const char *proc) {
 #else
   #include <dlfcn.h>
 
-static void *libgl;   // OpenGL library
-static void *libglx;  // GLX library
-static void *libegl;  // EGL library
+static void* libgl;   // OpenGL library
+static void* libglx;  // GLX library
+static void* libegl;  // EGL library
 static GL3WGetProcAddressProc gl_get_proc_address;
 
 static void close_libgl(void) {
@@ -748,7 +748,7 @@ static void close_libgl(void) {
   }
 }
 
-static int is_library_loaded(const char *name, void **lib) {
+static int is_library_loaded(const char* name, void** lib) {
   *lib = dlopen(name, RTLD_LAZY | RTLD_LOCAL | RTLD_NOLOAD);
   return *lib != NULL;
 }
@@ -802,11 +802,11 @@ static int open_libgl(void) {
   if (res) return res;
 
   if (libegl)
-    *(void **)(&gl_get_proc_address) = dlsym(libegl, "eglGetProcAddress");
+    *(void**)(&gl_get_proc_address) = dlsym(libegl, "eglGetProcAddress");
   else if (libglx)
-    *(void **)(&gl_get_proc_address) = dlsym(libglx, "glXGetProcAddressARB");
+    *(void**)(&gl_get_proc_address) = dlsym(libglx, "glXGetProcAddressARB");
   else
-    *(void **)(&gl_get_proc_address) = dlsym(libgl, "glXGetProcAddressARB");
+    *(void**)(&gl_get_proc_address) = dlsym(libgl, "glXGetProcAddressARB");
 
   if (!gl_get_proc_address) {
     close_libgl();
@@ -816,17 +816,17 @@ static int open_libgl(void) {
   return GL3W_OK;
 }
 
-static GL3WglProc get_proc(const char *proc) {
+static GL3WglProc get_proc(const char* proc) {
   GL3WglProc res = NULL;
 
   // Before EGL version 1.5, eglGetProcAddress doesn't support querying core
   // functions and may return a dummy function if we try, so try to load the
   // function from the GL library directly first.
-  if (libegl) *(void **)(&res) = dlsym(libgl, proc);
+  if (libegl) *(void**)(&res) = dlsym(libgl, proc);
 
   if (!res) res = gl_get_proc_address(proc);
 
-  if (!libegl && !res) *(void **)(&res) = dlsym(libgl, proc);
+  if (!libegl && !res) *(void**)(&res) = dlsym(libgl, proc);
 
   return res;
 }

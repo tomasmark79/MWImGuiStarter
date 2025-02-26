@@ -8,6 +8,8 @@ class MarkWareVCMake(ConanFile):
     
     def configure(self):
         self.options["*"].shared = False # this replaced shared flag from SolutionController and works
+        
+        self.options["sdl"].iconv = False # iconv not supported by mingw-w64
 
     def requirements(self):
         self.requires("zlib/1.2.11")
@@ -21,9 +23,9 @@ class MarkWareVCMake(ConanFile):
     def generate(self):
         copy(self, "*glfw*", os.path.join(self.dependencies["imgui"].package_folder,
              "res", "bindings"), os.path.join(self.source_folder, "include/bindings"))
-        copy(self, "*sdl2*", os.path.join(self.dependencies["imgui"].package_folder,
-             "res", "bindings"), os.path.join(self.source_folder, "include/bindings"))
         copy(self, "*opengl3*", os.path.join(self.dependencies["imgui"].package_folder,
+             "res", "bindings"), os.path.join(self.source_folder, "include/bindings"))
+        copy(self, "*sdl2*", os.path.join(self.dependencies["imgui"].package_folder,
              "res", "bindings"), os.path.join(self.source_folder, "include/bindings"))
     
     

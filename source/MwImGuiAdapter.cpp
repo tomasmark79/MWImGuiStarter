@@ -6,7 +6,7 @@
 #include <CGuiSdl2Gl3.hpp>
 
 #define GLFW
-#define SDL2
+// #define SDL2
 
 namespace library {
 
@@ -15,7 +15,7 @@ namespace library {
               << " instantiated ---" << std::endl;
 #ifdef GLFW
     CGuiGlfwGl3 gui;
-#elifdef SDL2
+#elif defined(SDL2)
     CGuiSdl2Gl3 gui;
 #endif
     gui.runThread();
