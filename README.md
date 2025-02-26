@@ -11,8 +11,7 @@ MyImGuiStarter is using MarkWare VCMake project template.
 ## Implementation classes
 
 CGuiGlfwGl3 - GLFW with OpenGL3
-CGuiSdl2Gl3 - todo
-
+CGuiSdl2Gl3 - SDL2 with OpenGL3
 
 ## native x86_64 Linux
 
