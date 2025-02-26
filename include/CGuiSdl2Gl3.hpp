@@ -1,11 +1,12 @@
-#ifndef CGUIGLFWGL3_H
-#define CGUIGLFWGL3_H
+#ifndef CGUISDL2GL3_H
+#define CGUISDL2GL3_H
+
 #include <thread>
 
-class CGuiGlfwGl3 {
+class CGuiSdl2Gl3 {
 public:
-  CGuiGlfwGl3() { };
-  ~CGuiGlfwGl3() { };
+  CGuiSdl2Gl3() { };
+  ~CGuiSdl2Gl3() { };
 
   void Run();
   void runThread();

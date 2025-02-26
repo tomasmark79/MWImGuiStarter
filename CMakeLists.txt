@@ -55,8 +55,7 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 find_package(ZLIB REQUIRED)
 find_package(fmt REQUIRED)
 find_package(nlohmann_json REQUIRED)
-
-#find_package(SDL2 REQUIRED)
+find_package(SDL2 REQUIRED)
 find_package(glfw3 REQUIRED)
 
 find_package(imgui REQUIRED)
@@ -148,7 +147,7 @@ target_link_libraries(
     PRIVATE ZLIB::ZLIB
     PRIVATE fmt::fmt
     PRIVATE nlohmann_json::nlohmann_json
-    #PRIVATE SDL2::SDL2
+    PRIVATE SDL2::SDL2
     PRIVATE glfw
     PRIVATE imgui::imgui)
 
