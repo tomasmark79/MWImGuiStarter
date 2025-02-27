@@ -7,6 +7,9 @@ import subprocess
 import tempfile
 import logging
 
+# MIT License
+# Copyright (c) 2024-2025 Tomáš Mark
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -36,10 +39,10 @@ files_to_update = [
     # "cmake/mw-runtime.cmake",
     # "cmake/mw-sanitizer.cmake",
     # "include/VCMLib/VCMLib.hpp",
-    # "include/Logger.hpp",
-    # "source/VCMLib.cpp",
-    # "source/Logger.cpp",
-    # "standalone/source/Main.cpp",
+    # "src/Logger/Logger.cpp",
+    # "src/Logger/Logger.hpp",
+    # "src/VCMLib.cpp",
+    # "standalone/src/Main.cpp",
     # "standalone/CMakeLists.txt",
     # "standalone/LICENSE",
     # ".clang-format",

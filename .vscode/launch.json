@@ -1,4 +1,6 @@
 {
+    /* MIT License
+       Copyright (c) 2024-2025 Tomáš Mark */
     "version": "0.2.0",
     "configurations": [
         {
@@ -26,7 +28,7 @@
             "name": "Debug CMake configuration",
             "type": "cmake",
             "request": "launch",
-            "pipeName": "/tmp/cmake-debugger-pipe-b63684fb-b045-4d6a-9e74-5c36bc7bed0e",
+            "pipeName": "/tmp/cmake-debugger-pipe-c2b99b2f-8934-489a-a94c-336de1ae5194",
             "cmakeDebugType": "external"
         },
         {

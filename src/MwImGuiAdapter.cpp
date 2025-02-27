@@ -2,20 +2,23 @@
 #include <MwImGuiAdapter/MwImGuiAdapter.hpp>
 #include <iostream>
 
+// MIT License
+// Copyright (c) 2024-2025 Tomáš Mark
+
 #include <CGuiGlfwGl3.hpp>
 #include <CGuiSdl2Gl3.hpp>
 
-#define GLFW
-// #define SDL2
+#define GLFW_ELSE_SDL2
 
 namespace library {
 
   MwImGuiAdapter::MwImGuiAdapter() {
     std::cout << "--- MwImGuiAdapter v." << MWIMGUIADAPTER_VERSION
               << " instantiated ---" << std::endl;
-#ifdef GLFW
+
+#ifdef GLFW_ELSE_SDL2
     CGuiGlfwGl3 gui;
-#elif defined(SDL2)
+#else 
     CGuiSdl2Gl3 gui;
 #endif
     gui.runThread();

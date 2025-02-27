@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 cmake_policy(SET CMP0091 NEW)
 
+# MIT License
+# Copyright (c) 2024-2025 Tomáš Mark
+
 #+-+-+-+-+-+-+-+-+-+-+
 #|s|t|a|n|d|a|l|o|n|e|
 #+-+-+-+-+-+-+-+-+-+-+
@@ -9,7 +12,7 @@ cmake_policy(SET CMP0091 NEW)
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 # === runtime
 include(../cmake/mw-runtime.cmake)
-option(USE_STATIC_RUNTIME "Link against static runtime libraries" ON)
+option(USE_STATIC_RUNTIME "Link against static runtime libraries" OFF)
 # === sanitizer
 include(../cmake/mw-sanitizer.cmake)
 option(SANITIZE_ADDRESS "Enable Address sanitizer" OFF)
@@ -62,24 +65,20 @@ cpm_licenses_create_disclaimer_target(
     "${CMAKE_CURRENT_BINARY_DIR}/${STANDALONE_NAME}_third_party.txt" "${CPM_PACKAGES}")
 
 # ==============================================================================
-# Source and header files Glob not recommended, but the simplest way for this template
+# src/ for source files and `internal` header files that are not intended for public use
 # ==============================================================================
-file(
-    GLOB_RECURSE
-    headers
-    CONFIGURE_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hh
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hxx)
 file(
     GLOB_RECURSE
     sources
     CONFIGURE_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cxx)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hh
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hxx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cxx)
 
 # ==============================================================================
 # Create target

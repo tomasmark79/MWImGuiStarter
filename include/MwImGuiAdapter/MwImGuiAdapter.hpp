@@ -1,8 +1,10 @@
 #ifndef __MWIMGUIADAPTER_H__
 #define __MWIMGUIADAPTER_H__
 
-// Here we will make Class connection to kinds of implementations
-// of ImGui, GLFW and OpenGL3
+// MIT License
+// Copyright (c) 2024-2025 Tomáš Mark
+
+// Public API
 
 namespace library {
 

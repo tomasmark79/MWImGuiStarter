@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.14 FATAL_ERROR)
 cmake_policy(SET CMP0091 NEW)
 
+# MIT License
+# Copyright (c) 2024-2025 Tomáš Mark
+
 #+-+-+-+-+-+-+-+
 #|l|i|b|r|a|r|y|
 #+-+-+-+-+-+-+-+
@@ -9,7 +12,7 @@ cmake_policy(SET CMP0091 NEW)
 option(BUILD_SHARED_LIBS "Build using shared libraries" OFF)
 # === runtime
 include(cmake/mw-runtime.cmake)
-option(USE_STATIC_RUNTIME "Link against static runtime libraries" ON)
+option(USE_STATIC_RUNTIME "Link against static runtime libraries" OFF)
 # === sanitizer
 include(cmake/mw-sanitizer.cmake)
 option(SANITIZE_ADDRESS "Enable Address sanitizer" OFF)
@@ -55,10 +58,9 @@ list(APPEND CMAKE_PREFIX_PATH ${CMAKE_BINARY_DIR})
 find_package(ZLIB REQUIRED)
 find_package(fmt REQUIRED)
 find_package(nlohmann_json REQUIRED)
+find_package(imgui REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(glfw3 REQUIRED)
-
-find_package(imgui REQUIRED)
 
 # ==============================================================================
 # CPM.cmake dependencies - take care conflicts
@@ -72,7 +74,7 @@ cpm_licenses_create_disclaimer_target(
     "${CPM_PACKAGES}")
 
 # ==============================================================================
-# Source and header files Glob not recommended, but the simplest way for this template
+# include/ for public header files intended for use in other projects or modules.
 # ==============================================================================
 file(
     GLOB_RECURSE
@@ -81,20 +83,23 @@ file(
     ${CMAKE_CURRENT_SOURCE_DIR}/include/*.h
     ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp
     ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hh
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hxx
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.cxx)
+    ${CMAKE_CURRENT_SOURCE_DIR}/include/*.hxx)
 
+# ==============================================================================
+# src/ for source files and `internal` header files that are not intended for public use
+# ==============================================================================
 file(
     GLOB_RECURSE
     sources
     CONFIGURE_DEPENDS
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.c
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/*.cxx)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hh
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.hxx
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/*.cxx)
 
 # ==============================================================================
 # Create target
@@ -115,7 +120,7 @@ apply_sanitizers(${LIBRARY_NAME})
 target_include_directories(
     ${LIBRARY_NAME}
     PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include>
-    PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/source> # for exceptions 😎
+    PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src>
            $<INSTALL_INTERFACE:include/${LIBRARY_NAME}-${PROJECT_VERSION}>)
 
 # ==============================================================================
@@ -148,8 +153,7 @@ target_link_libraries(
     PRIVATE fmt::fmt
     PRIVATE nlohmann_json::nlohmann_json
     PRIVATE SDL2::SDL2
-    PRIVATE glfw
-    PRIVATE imgui::imgui)
+    PRIVATE glfw imgui::imgui)
 
 # ==============================================================================
 # set packageProject arttributes
