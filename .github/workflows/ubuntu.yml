@@ -28,7 +28,7 @@ jobs:
       - name: install conan to system
         run: |
           sudo apt-get update
-          sudo apt-get install -y python3-pip
+          sudo apt-get install -y python3-pip libgl-dev libgl1-mesa-dev libgl1-mesa-dev
           pip3 install conan
 
       - name: create Conan cache
@@ -46,7 +46,7 @@ jobs:
         run: conan profile show
 
       - name: install Conan dependencies
-        run: conan install . -s build_type=${{env.BUILD_TYPE}} -of=${{github.workspace}}/build -pr default -b=missing
+        run: conan install . -s build_type=${{env.BUILD_TYPE}} -of=${{github.workspace}}/build -pr default -b=missing -c tools.system.package_manager:mode=install -c tools.system.package_manager:sudo=true
       
       - name: CMake configure Library
         run: cmake -B ${{github.workspace}}/build -DCMAKE_TOOLCHAIN_FILE=conan_toolchain.cmake -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
