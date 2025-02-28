@@ -9,9 +9,8 @@
 MWImGuiStarter is using 
 **[MarkWareVCMake](https://github.com/tomasmark79/MarkWareVCMake)** project template.  
 
-## To Do
+![Snímek obrazovky z 2025-02-28 15-30-45](https://github.com/user-attachments/assets/fb6cb29f-b083-4b10-aa38-e56c2b4a8b6d)
 
- - create Conan package recipe from library target
 
 ## Implemented classes
 
