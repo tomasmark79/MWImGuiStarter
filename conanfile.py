@@ -37,6 +37,7 @@ class MarkWareVCMakeRecipe(ConanFile):
         self.requires("nlohmann_json/[~3.11]")
         self.requires("sdl/2.30.9")
         self.requires("glfw/3.4")
+        self.requires("glew/2.2.0")
         self.requires("imgui/1.91.5")
 
     def generate(self):

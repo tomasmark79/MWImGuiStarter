@@ -18,7 +18,7 @@ namespace library {
 
 #ifdef GLFW_ELSE_SDL2
     CGuiGlfwGl3 gui;
-#else 
+#else
     CGuiSdl2Gl3 gui;
 #endif
     gui.runThread();

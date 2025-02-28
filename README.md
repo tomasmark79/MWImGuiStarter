@@ -1,4 +1,4 @@
-# MyImGuiStarter
+# MWImGuiStarter
 
 [![Ubuntu](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/ubuntu.yml/badge.svg)](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/ubuntu.yml)
 [![MacOS](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/macos.yml/badge.svg)](https://github.com/tomasmark79/MWImGuiStarter/actions/workflows/macos.yml)
@@ -6,12 +6,16 @@
 
 ## Overview
 
-MyImGuiStarter is using 
+MWImGuiStarter is using 
 **[MarkWareVCMake](https://github.com/tomasmark79/MarkWareVCMake)** project template.  
+
+## To Do
+
+ - create Conan package recipe from library target
 
 ## Implemented classes
 
- - switchable by preprocessor
+ - switchable by preprocessor [GLFW_ELSE_SDL2]
 
 CGuiGlfwGl3 - GLFW with OpenGL3  
 CGuiSdl2Gl3 - SDL2 with OpenGL3

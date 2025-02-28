@@ -15,4 +15,7 @@ private:
   std::thread m_thread;
 };
 
+void create_triangle(unsigned int &vbo, unsigned int &vao, unsigned int &ebo);
+void render_conan_logo();
+
 #endif

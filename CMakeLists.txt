@@ -61,6 +61,7 @@ find_package(nlohmann_json REQUIRED)
 find_package(imgui REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(glfw3 REQUIRED)
+find_package(glew REQUIRED)
 
 # ==============================================================================
 # CPM.cmake dependencies - take care conflicts
@@ -153,7 +154,7 @@ target_link_libraries(
     PRIVATE fmt::fmt
     PRIVATE nlohmann_json::nlohmann_json
     PRIVATE SDL2::SDL2
-    PRIVATE glfw imgui::imgui)
+    PRIVATE GLEW::GLEW glfw imgui::imgui)
 
 # ==============================================================================
 # set packageProject arttributes

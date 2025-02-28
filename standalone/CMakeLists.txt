@@ -99,7 +99,24 @@ set_target_properties(${STANDALONE_NAME} PROPERTIES OUTPUT_NAME "${STANDALONE_NA
 # ==============================================================================
 target_link_libraries(${STANDALONE_NAME} PRIVATE dsdotname::MwImGuiAdapter)
 
+# for debugging purposes
+# file way
+# add_custom_command(TARGET ${STANDALONE_NAME}
+#     POST_BUILD
+#     COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/../assets/simple-shader.vs $<TARGET_FILE_DIR:${STANDALONE_NAME}>
+#     COMMAND ${CMAKE_COMMAND} -E copy ${PROJECT_SOURCE_DIR}/../assets/simple-shader.fs $<TARGET_FILE_DIR:${STANDALONE_NAME}>
+# )
+
+# directory way
+add_custom_command(
+    TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${PROJECT_SOURCE_DIR}/../assets/ ${CMAKE_BINARY_DIR}
+)
+
 # ==============================================================================
 # Add missing installation exports
 # ==============================================================================
 install(TARGETS ${STANDALONE_NAME} RUNTIME DESTINATION bin)
+install(FILES ${PROJECT_SOURCE_DIR}/../assets/simple-shader.vs DESTINATION share/${STANDALONE_NAME}/shaders)
+install(FILES ${PROJECT_SOURCE_DIR}/../assets/simple-shader.fs DESTINATION share/${STANDALONE_NAME}/shaders)
