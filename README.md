@@ -16,25 +16,26 @@ MWImGuiStarter is using
 
  - switchable by preprocessor [GLFW_ELSE_SDL2]
 
-CGuiGlfwGl3 - GLFW with OpenGL3  
-CGuiSdl2Gl3 - SDL2 with OpenGL3
+`CGuiGlfwGl3` - binding GLFW with OpenGL3
+ - imGui demo
+ - is using simple shader and is generating shader triangle  
 
-## succesfuly native builds
+`CGuiSdl2Gl3` - binding SDL2 with OpenGL3
+ - just imGui demo show
+
+## succesful builds
 
  - native gcc x86_64 Linux
  - native clang x86_64 Linux
  - native gcc aarch64 Linux
-
-## succesfuly cross builds
- 
+ - native AppleClang MacOS
+ - native MSVC Windows
  - cross mingw32-w64 Windows
- 
-## yet un-succesfuly builds
 
+## unsuccesful builds
  - cross gcc aarch64 Debian version: 12 (bookworm)
    - missing X11 packages in sysroot
    - buggy libunwind
-   - 
 
 ---
 
