@@ -24,7 +24,14 @@ class MarkWareVCMakeRecipe(ConanFile):
     # ----------------------------------------------------------
     
     def system_requirements(self):
-        apt = package_manager.Apt(self)
+        dnf = package_manager.Dnf(self)
+        
+        # openssl 3.4.1 requirements
+        dnf.install("perl-FindBin")
+        dnf.install("perl-IPC-Cmd")
+        dnf.install("perl-Digest-SHA")
+        
+        # apt = package_manager.Apt(self)
         # apt.install(["libsdl2-dev"])
 
     def configure(self):
